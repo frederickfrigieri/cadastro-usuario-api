@@ -1,5 +1,6 @@
 ﻿using Application.Commons.Interfaces;
 using Application.Commons.Repositories;
+using Domain.Commons;
 using Domain.entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,13 +15,27 @@ namespace Infrastructure.Repositories
             _dbContext.Usuarios.Add(usuario);
 
             await _dbContext.SaveChangesAsync(cancellationToken);
-            
+
             return usuario;
         }
 
-        public async Task<Usuario?> GetAsync(string email, CancellationToken cancellationToken)
+        public async Task<Usuario[]> ListarAsync()
+        {
+            var usuarios = await _dbContext.Usuarios.ToArrayAsync();
+
+            return usuarios;
+        }
+
+        public async Task<Usuario?> ProcurarPorEmailAsync(string email, CancellationToken cancellationToken)
         {
             var usuario = await _dbContext.Usuarios.SingleOrDefaultAsync(x => x.Email == email, cancellationToken);
+
+            return usuario;
+        }
+
+        public async Task<Usuario> ObterPorIdAsync(Guid usuarioId, CancellationToken cancellationToken)
+        {
+            var usuario = await _dbContext.Usuarios.SingleOrDefaultAsync(x => x.Id == usuarioId, cancellationToken) ?? throw new DomainException("Usuário não encontrado");
 
             return usuario;
         }

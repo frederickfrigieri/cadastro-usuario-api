@@ -14,7 +14,7 @@ namespace Application.Usuarios.Cadastrar
 
         public async Task<CadastrarResponse> Handle(CadastrarCommand request, CancellationToken cancellationToken)
         {
-            var usuario = await _usuarioRepository.GetAsync(request.Email, cancellationToken);
+            var usuario = await _usuarioRepository.ProcurarPorEmailAsync(request.Email, cancellationToken);
 
             if (usuario != null) throw new DomainException("Usuário já cadastrado");
 

@@ -9,8 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.ConfigureApplicationDI();
-builder.Services.ConfigureInfrastructureDI(builder.Configuration);
+builder.Services.RegisterApplicationDI();
+builder.Services.RegisterInfrastructureDI(builder.Configuration);
 
 var app = builder.Build();
 
@@ -21,11 +21,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
-
 app.UseHttpsRedirection();
-
-app.EndpointUsuario();
+app.RegisterUsuarioEndpoint();
 
 app.Run();
 

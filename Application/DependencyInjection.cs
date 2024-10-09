@@ -8,7 +8,7 @@ namespace Application
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection ConfigureApplicationDI(this IServiceCollection services)
+        public static IServiceCollection RegisterApplicationDI(this IServiceCollection services)
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());

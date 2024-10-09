@@ -29,7 +29,7 @@ namespace Domain.entities
         {
             Nome = dto.Nome;
             Sobrenome = dto.Sobrenome;
-            Senha = dto.Senha;
+            Email = dto.Email;
             UpdatedAt = DateTime.Now;
 
             return this;

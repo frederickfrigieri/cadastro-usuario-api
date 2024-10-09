@@ -10,7 +10,7 @@ namespace Infrastructure
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection ConfigureInfrastructureDI(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection RegisterInfrastructureDI(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<AppDbContext>((sp, options) =>
             {
