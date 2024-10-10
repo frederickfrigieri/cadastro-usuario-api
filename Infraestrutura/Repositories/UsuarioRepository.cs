@@ -1,6 +1,6 @@
 ﻿using Application.Commons.Interfaces;
 using Application.Commons.Repositories;
-using Domain.Commons;
+using Domain.Commons.Exceptions;
 using Domain.entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,13 +10,11 @@ namespace Infrastructure.Repositories
     {
         private readonly IAppDbContext _dbContext = dbContext;
 
-        public async Task<Usuario> CadastrarAsync(Usuario usuario, CancellationToken cancellationToken)
+        public async Task CadastrarAsync(Usuario usuario, CancellationToken cancellationToken)
         {
             _dbContext.Usuarios.Add(usuario);
 
             await _dbContext.SaveChangesAsync(cancellationToken);
-
-            return usuario;
         }
 
         public async Task<Usuario[]> ListarAsync()

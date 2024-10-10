@@ -1,4 +1,6 @@
-﻿namespace Domain.Commons
+﻿using Domain.Commons.Exceptions;
+
+namespace Domain.Commons
 {
     public abstract class EntityBase
     {

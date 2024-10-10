@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using Domain.Commons.Exceptions;
+using FluentValidation;
 using MediatR;
 
 namespace Application.Commons.Behaviours
@@ -28,7 +29,7 @@ namespace Application.Commons.Behaviours
                     .SelectMany(r => r.Errors)
                     .ToList();
 
-                if (failures.Any()) throw new ValidationException(failures);
+                if (failures.Any()) throw new Domain.Commons.Exceptions.ValidationException(failures);
             }
             return await next();
         }

@@ -1,7 +1,7 @@
 ﻿using Application.Commons.Interfaces;
 using Application.Commons.Repositories;
 using AutoMapper;
-using Domain.Commons;
+using Domain.Commons.Exceptions;
 using Domain.Dtos;
 using MediatR;
 

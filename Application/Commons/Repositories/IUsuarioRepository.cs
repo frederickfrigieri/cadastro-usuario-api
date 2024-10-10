@@ -4,7 +4,7 @@ namespace Application.Commons.Repositories
 {
     public interface IUsuarioRepository
     {
-        Task<Usuario> CadastrarAsync(Usuario usuario, CancellationToken cancellationToken);
+        Task CadastrarAsync(Usuario usuario, CancellationToken cancellationToken);
         Task<Usuario?> ProcurarPorEmailAsync(string email, CancellationToken cancellationToken);
         Task<Usuario> ObterPorIdAsync(Guid usuarioId, CancellationToken cancellationToken);
         Task<Usuario[]> ListarAsync();
