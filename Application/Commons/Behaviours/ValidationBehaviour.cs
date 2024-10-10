@@ -1,5 +1,4 @@
-﻿using Domain.Commons.Exceptions;
-using FluentValidation;
+﻿using FluentValidation;
 using MediatR;
 
 namespace Application.Commons.Behaviours

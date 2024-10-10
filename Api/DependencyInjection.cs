@@ -11,6 +11,7 @@ namespace Api
         {
             services.AddHttpContextAccessor();
             services.AddExceptionHandler<CustomExceptionHandler>();
+            services.AddProblemDetails();
 
             services.AddRazorPages();
 

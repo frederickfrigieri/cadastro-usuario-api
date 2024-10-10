@@ -69,7 +69,7 @@ namespace Api.IntegrationTest.Usuarios
             };
 
             var requestJson = JsonSerializer.Serialize(request);
-            var statusEsperado = HttpStatusCode.InternalServerError;
+            var statusEsperado = HttpStatusCode.BadRequest;
 
             //act
             var response = await Client.PostAsync("/usuarios", new StringContent(requestJson, Encoding.Unicode, "application/json-patch+json"));
