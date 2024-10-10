@@ -29,3 +29,4 @@ app.RegisterUsuarioEndpoint();
 
 app.Run();
 
+public partial class Program { }

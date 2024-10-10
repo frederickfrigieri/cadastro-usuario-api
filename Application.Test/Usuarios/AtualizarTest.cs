@@ -14,7 +14,6 @@ namespace Application.UnitTest.Usuarios
         private Mock<IUsuarioRepository> _usuarioRepositoryMock;
         private CancellationToken _cancellation;
         private AtualizarCommand _command;
-        private CadastrarCommandHandler _commandHandler;
 
         public AtualizarTest()
         {
